@@ -1,4 +1,4 @@
-.alert-history {
+.alert-details {
   width: 100%;
   min-height: 100vh;
   background-color: var(--color-soft-blue-gray);
@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-.alert-history__content {
+.alert-details__content {
   width: 500px;
   max-height: 90vh; /*Cambiarlo a max-height*/
   background-color: white;
@@ -19,11 +19,11 @@
   padding: 40px;
 }
 
-.alert-history__logo {
+.alert-details__logo {
   width: 260px;
 }
 
-.alert-history__title {
+.alert-details__title {
   width: 100%;
   text-align: center;
   font-family: var(--font-family-jost);
@@ -32,25 +32,19 @@
   color: var(--color-dark-blood-red);
 }
 
-.alert-history__list {
+.alert-details__details-box {
+  border: 1px solid black;
   width: 100%;
-  /* border: 1px solid red; */
-  padding: 5px 0;
-  overflow: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 }
 
-.alert-history__options {
-  /* border: 1px solid red; */
+.alert-details__options {
   width: 100%;
   display: flex;
   gap: 10px;
   justify-content: center;
 }
 
-.alert-history__option {
+.alert-details__option {
   color: white;
   border: none;
   height: 32px;
@@ -59,10 +53,10 @@
   cursor: pointer;
 }
 
-.alert-history__option--clear {
+.alert-details__option--delete {
   background-color: var(--color-dark-blood-red);
 }
 
-.alert-history__option--back {
+.alert-details__option--back {
   background-color: black;
 }

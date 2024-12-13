@@ -1,0 +1,32 @@
+.alert-recorded {
+  border: 1px solid gray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 45px;
+  padding: 15px 20px;
+  border-radius: 6px;
+}
+
+.alert-recorded__name {
+  max-width: 50%;
+  /* border: 1px solid red; */
+  font-family: var(--font-family-inter);
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.alert-recorded__date {
+  font-family: var(--font-family-inter);
+}
+
+.alert-recorder__button {
+  font-family: var(--font-family-jost);
+  border: none;
+  background-color: var(--color-dark-blood-red);
+  color: white;
+  height: 25px;
+  padding: 0 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
