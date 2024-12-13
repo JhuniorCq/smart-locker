@@ -1,0 +1,38 @@
+.alert-history {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-soft-blue-gray);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.alert-history__content {
+  width: 500px;
+  height: 90vh; /*Cambiarlo a max-height*/
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  padding: 40px;
+}
+
+.alert-history__logo {
+  width: 260px;
+}
+
+.alert-history__title {
+  width: 100%;
+  text-align: center;
+  font-family: var(--font-family-jost);
+  text-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+  color: var(--color-dark-blood-red);
+}
+
+.alert-history__list {
+  width: 100%;
+  border: 1px solid red;
+}
