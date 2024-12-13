@@ -2,9 +2,13 @@ import { useNavigate } from "react-router-dom";
 import smartLockerBN from "../../assets/images/Smart Locker B_N.png";
 import { Indicator } from "../../components/Indicator/Indicator";
 import { INDICATORS, SECURITY_VALUES } from "../../utils/constants";
+import { dbReal } from "../../credentials";
+import { ref, onValue } from "firebase/database";
 import "./Home.css";
+import { useEffect, useState } from "react";
 
 export const Home = () => {
+  const [arduinoData, setArduinoData] = useState(null);
   const navigate = useNavigate();
 
   const reload = () => {
@@ -19,14 +23,57 @@ export const Home = () => {
     navigate("/recommendations");
   };
 
+  useEffect(() => {
+    const arduinoRef = ref(dbReal, "sensores/sensor1");
+
+    // Escuchar los datos en tiempo real
+    const unsubscribe = onValue(arduinoRef, (snapshot) => {
+      const data = snapshot.val();
+      setArduinoData(data);
+    });
+
+    // Limpiar el listener al desmontar el componente
+    return () => unsubscribe();
+  }, []);
+
   return (
     <section className="home">
       <div className="home__content">
         <img src={smartLockerBN} alt="Smart Locker" className="home__logo" />
         <h1 className="home__title">EL ESTADO DEL SMART LOCKER ES:</h1>
-        <Indicator type={INDICATORS.TEMPERATURE} value={25} min={0} max={200} />
-        <Indicator type={INDICATORS.HUMIDITY} value={45} min={0} max={100} />
-        <Indicator type={INDICATORS.SECURITY} value={SECURITY_VALUES.OPEN} />
+        <div>
+          {arduinoData ? (
+            <>
+              <p>Temperatura: {arduinoData.temperature}</p>
+              <p>Humedad: {arduinoData.humidity}</p>
+              <p>Seguridad: {arduinoData.security}</p>
+            </>
+          ) : (
+            <div>Cargando ...</div>
+          )}
+        </div>
+        {arduinoData ? (
+          <>
+            <Indicator
+              type={INDICATORS.TEMPERATURE}
+              value={arduinoData.temperature}
+              min={0}
+              max={200}
+            />
+            <Indicator
+              type={INDICATORS.HUMIDITY}
+              value={arduinoData.humidity}
+              min={0}
+              max={100}
+            />
+            <Indicator
+              type={INDICATORS.SECURITY}
+              value={arduinoData.security}
+            />
+          </>
+        ) : (
+          <div>Cargando ...</div>
+        )}
 
         <div className="home__options">
           <button
