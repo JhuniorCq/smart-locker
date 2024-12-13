@@ -1,7 +1,7 @@
-import { INDICATORS } from "../../utils/constants";
+import { INDICATORS, SECURITY_VALUES } from "../../utils/constants";
 import "./Indicator.css";
 
-export const Indicator = ({ type, value, min, max, open }) => {
+export const Indicator = ({ type, value, min, max, doorStatus /*, open*/ }) => {
   return (
     <div className="indicator">
       <h2 className="indicator__name">{type}:</h2>
@@ -19,12 +19,16 @@ export const Indicator = ({ type, value, min, max, open }) => {
         <div className="indicator__box-type">
           <div
             className={`indicator__security ${
-              open ? "indicator__open" : "indicator__close"
+              value === SECURITY_VALUES.OPEN
+                ? "indicator__open"
+                : "indicator__close"
             }`}
           >
-            El Smart Locker se encuentra {open ? "ABIERTO" : "CERRADO"}
+            El Smart Locker se encuentra {value}
           </div>
-          {open && <button className="indicator__close-button">CERRAR</button>}
+          {value === SECURITY_VALUES.OPEN && (
+            <button className="indicator__close-button">CERRAR</button>
+          )}
         </div>
       ) : null}
     </div>

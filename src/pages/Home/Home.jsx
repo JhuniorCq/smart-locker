@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import smartLockerBN from "../../assets/images/Smart Locker B_N.png";
 import { Indicator } from "../../components/Indicator/Indicator";
-import { INDICATORS } from "../../utils/constants";
+import { INDICATORS, SECURITY_VALUES } from "../../utils/constants";
 import "./Home.css";
 
 export const Home = () => {
@@ -26,7 +26,7 @@ export const Home = () => {
         <h1 className="home__title">EL ESTADO DEL SMART LOCKER ES:</h1>
         <Indicator type={INDICATORS.TEMPERATURE} value={25} min={0} max={200} />
         <Indicator type={INDICATORS.HUMIDITY} value={45} min={0} max={100} />
-        <Indicator type={INDICATORS.SECURITY} open={true} />
+        <Indicator type={INDICATORS.SECURITY} value={SECURITY_VALUES.OPEN} />
 
         <div className="home__options">
           <button
