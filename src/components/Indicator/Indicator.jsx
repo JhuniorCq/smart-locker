@@ -8,25 +8,11 @@ export const Indicator = ({ type, value, min, max, open }) => {
       {type === INDICATORS.TEMPERATURE ? (
         <div className="indicator__box-type">
           <p className="indicator__value">{value}°C</p>
-          {/* <input
-            className="indicator__input"
-            type="range"
-            min={min}
-            max={max}
-            disabled
-          /> */}
           <progress value={value} min={min} max={max}></progress>
         </div>
       ) : type === INDICATORS.HUMIDITY ? (
         <div className="indicator__box-type">
           <p className="indicator__value">{value}%</p>
-          {/* <input
-            className="indicator__input"
-            type="range"
-            min={min}
-            max={max}
-            disabled
-          /> */}
           <progress value={value} min={min} max={max}></progress>
         </div>
       ) : type === INDICATORS.SECURITY ? (

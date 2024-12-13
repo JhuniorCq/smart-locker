@@ -11,14 +11,7 @@ export const AlertRecorded = ({
   const navigate = useNavigate();
 
   const goToAlertDetails = () => {
-    navigate(
-      `/alert-details/${id}` /*, {
-      state: {
-        alertDetails: details,
-        idRecommendation,
-      },
-    }*/
-    );
+    navigate(`/alert-details/${id}`);
   };
 
   return (

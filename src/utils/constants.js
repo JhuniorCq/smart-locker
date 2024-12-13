@@ -4,6 +4,11 @@ export const INDICATORS = {
   SECURITY: "SEGURIDAD",
 };
 
+export const SECURITY_VALUES = {
+  OPEN: "OPEN",
+  CLOSE: "CLOSE",
+};
+
 export const RECOMMENDATIONS = [
   {
     id: 1,
@@ -61,20 +66,9 @@ export const RECORDED_ALERTS = [
     name: "TEMPERATURA ALTA",
     date: "04/12/2024",
     time: "20:08",
-    details: [
-      {
-        name: INDICATORS.TEMPERATURE,
-        value: 25,
-      },
-      {
-        name: INDICATORS.HUMIDITY,
-        value: 45,
-      },
-      {
-        name: INDICATORS.SECURITY,
-        value: "CLOSE",
-      },
-    ],
+    temperature: 25,
+    humidity: 45,
+    security: SECURITY_VALUES.CLOSE,
     idRecommendation: 1,
   },
   {
@@ -82,20 +76,9 @@ export const RECORDED_ALERTS = [
     name: "INTRUSIÓN DETECTADA",
     date: "04/12/2024",
     time: "20:08",
-    details: [
-      {
-        name: INDICATORS.TEMPERATURE,
-        value: 25,
-      },
-      {
-        name: INDICATORS.HUMIDITY,
-        value: 45,
-      },
-      {
-        name: INDICATORS.SECURITY,
-        value: "OPEN",
-      },
-    ],
+    temperature: 25,
+    humidity: 45,
+    security: SECURITY_VALUES.OPEN,
     idRecommendation: 2,
   },
   {
@@ -103,20 +86,9 @@ export const RECORDED_ALERTS = [
     name: "TEMPERATURA BAJA",
     date: "03/12/2024",
     time: "20:08",
-    details: [
-      {
-        name: INDICATORS.TEMPERATURE,
-        value: 25,
-      },
-      {
-        name: INDICATORS.HUMIDITY,
-        value: 45,
-      },
-      {
-        name: INDICATORS.SECURITY,
-        value: "CLOSE",
-      },
-    ],
+    temperature: 25,
+    humidity: 45,
+    security: SECURITY_VALUES.CLOSE,
     idRecommendation: 2,
   },
   {
@@ -124,20 +96,9 @@ export const RECORDED_ALERTS = [
     name: "TEMPERATURA ALTA",
     date: "03/12/2024",
     time: "20:08",
-    details: [
-      {
-        name: INDICATORS.TEMPERATURE,
-        value: 25,
-      },
-      {
-        name: INDICATORS.HUMIDITY,
-        value: 45,
-      },
-      {
-        name: INDICATORS.SECURITY,
-        value: "CLOSE",
-      },
-    ],
+    temperature: 25,
+    humidity: 45,
+    security: SECURITY_VALUES.CLOSE,
     idRecommendation: 1,
   },
   {
@@ -145,20 +106,9 @@ export const RECORDED_ALERTS = [
     name: "HUMEDAD ALTA",
     date: "03/12/2024",
     time: "20:08",
-    details: [
-      {
-        name: INDICATORS.TEMPERATURE,
-        value: 25,
-      },
-      {
-        name: INDICATORS.HUMIDITY,
-        value: 45,
-      },
-      {
-        name: INDICATORS.SECURITY,
-        value: "CLOSE",
-      },
-    ],
+    temperature: 25,
+    humidity: 45,
+    security: SECURITY_VALUES.CLOSE,
     idRecommendation: 3,
   },
   {
@@ -166,20 +116,9 @@ export const RECORDED_ALERTS = [
     name: "HUMEDAD BAJA",
     date: "02/12/2024",
     time: "20:08",
-    details: [
-      {
-        name: INDICATORS.TEMPERATURE,
-        value: 25,
-      },
-      {
-        name: INDICATORS.HUMIDITY,
-        value: 45,
-      },
-      {
-        name: INDICATORS.SECURITY,
-        value: "CLOSE",
-      },
-    ],
+    temperature: 25,
+    humidity: 45,
+    security: SECURITY_VALUES.CLOSE,
     idRecommendation: 4,
   },
   {
@@ -187,20 +126,9 @@ export const RECORDED_ALERTS = [
     name: "TEMPERATURA ALTA",
     date: "02/12/2024",
     time: "20:08",
-    details: [
-      {
-        name: INDICATORS.TEMPERATURE,
-        value: 25,
-      },
-      {
-        name: INDICATORS.HUMIDITY,
-        value: 45,
-      },
-      {
-        name: INDICATORS.SECURITY,
-        value: "CLOSE",
-      },
-    ],
+    temperature: 25,
+    humidity: 45,
+    security: SECURITY_VALUES.CLOSE,
     idRecommendation: 1,
   },
   {
@@ -208,20 +136,9 @@ export const RECORDED_ALERTS = [
     name: "TEMPERATURA ALTA",
     date: "02/12/2024",
     time: "20:08",
-    details: [
-      {
-        name: INDICATORS.TEMPERATURE,
-        value: 25,
-      },
-      {
-        name: INDICATORS.HUMIDITY,
-        value: 45,
-      },
-      {
-        name: INDICATORS.SECURITY,
-        value: "CLOSE",
-      },
-    ],
+    temperature: 25,
+    humidity: 45,
+    security: SECURITY_VALUES.CLOSE,
     idRecommendation: 1,
   },
   {
@@ -229,20 +146,9 @@ export const RECORDED_ALERTS = [
     name: "TEMPERATURA ALTA",
     date: "02/12/2024",
     time: "20:08",
-    details: [
-      {
-        name: INDICATORS.TEMPERATURE,
-        value: 25,
-      },
-      {
-        name: INDICATORS.HUMIDITY,
-        value: 45,
-      },
-      {
-        name: INDICATORS.SECURITY,
-        value: "CLOSE",
-      },
-    ],
+    temperature: 25,
+    humidity: 45,
+    security: SECURITY_VALUES.CLOSE,
     idRecommendation: 1,
   },
 ];

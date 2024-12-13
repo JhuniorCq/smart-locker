@@ -5,6 +5,7 @@ import {
   INDICATORS,
   RECOMMENDATIONS,
   RECORDED_ALERTS,
+  SECURITY_VALUES,
 } from "../../utils/constants";
 import { Indicator } from "../../components/Indicator/Indicator";
 
@@ -15,8 +16,6 @@ export const AlertDetails = () => {
   const recordedAlert = RECORDED_ALERTS.find(
     (recordedAlert) => recordedAlert.id === Number(id)
   );
-
-  console.log(recordedAlert);
 
   const alertRecommendations = RECOMMENDATIONS.find(
     (recommendation) => recordedAlert.idRecommendation === recommendation.id
@@ -36,39 +35,57 @@ export const AlertDetails = () => {
         />
         <h1 className="alert-details__title">DETALLES DE LA ALERTA N°{id}</h1>
         <div className="alert-details__details-box">
-          <div>
+          <div className="alert-details__details">
             <p className="alert-details__type">NOMBRE: </p>
             <p>{recordedAlert.name}</p>
           </div>
-          <div>
+          <div className="alert-details__details">
             <p className="alert-details__type">FECHA: </p>
             <p>{recordedAlert.date}</p>
           </div>
-          <div>
+          <div className="alert-details__details">
             <p className="alert-details__type">HORA: </p>
             <p>{recordedAlert.time}</p>
           </div>
           <div>
-            <p>DETALLES: </p>
-            <div>
+            <p className="alert-details__type">DETALLES: </p>
+            <div className="alert-details__indicators">
               <Indicator
                 type={INDICATORS.TEMPERATURE}
                 min={0}
                 max={200}
-                value={25}
+                value={recordedAlert.temperature}
               />
               <Indicator
                 type={INDICATORS.HUMIDITY}
                 min={0}
                 max={100}
-                value={45}
+                value={recordedAlert.humidity}
               />
+              <div className="alert-details__security">
+                <h2 className="alert-details__security-name">
+                  {INDICATORS.SECURITY}
+                </h2>
+                <p
+                  className={`alert-details__security-value ${
+                    recordedAlert.security === SECURITY_VALUES.OPEN
+                      ? "alert-details__security-value--open"
+                      : recordedAlert.security === SECURITY_VALUES.CLOSE
+                      ? "alert-details__security-value--close"
+                      : ""
+                  }`}
+                >
+                  {recordedAlert.security}
+                </p>
+              </div>
             </div>
           </div>
-          <ul>
-            {alertRecommendations.recommendations.map((recommendation) => (
-              <li>{recommendation}</li>
-            ))}
+          <ul className="alert-details__recommendations">
+            {alertRecommendations.recommendations.map(
+              (recommendation, index) => (
+                <li key={index}>{recommendation}</li>
+              )
+            )}
           </ul>
         </div>
         <div className="alert-details__options">
