@@ -1,10 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import { AlertRecorded } from "../../components/AlertRecorded/AlertRecorded";
-import { RECORDED_ALERTS } from "../../utils/constants";
+// import { RECORDED_ALERTS } from "../../utils/constants";
 import smartLockerBN from "../../assets/images/Smart Locker B_N.png";
 import "./AlertHistory.css";
+import { useContext } from "react";
+import { RecordedAlertsContext } from "../../context/RecordedAlerts/RecordedAlertsContext";
 
 export const AlertHistory = () => {
+  const { RECORDED_ALERTS } = useContext(RecordedAlertsContext);
+  console.log(RECORDED_ALERTS);
   const navigate = useNavigate();
 
   const back = () => {

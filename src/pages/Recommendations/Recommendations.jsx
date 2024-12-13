@@ -1,10 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { Recommendation } from "../../components/Recommendation/Recommendation";
 import "./Recommendations.css";
-import { RECOMMENDATIONS } from "../../utils/constants";
+// import { RECOMMENDATIONS } from "../../utils/constants";
+import { useContext } from "react";
+import { RecommendationsContext } from "../../context/RecommendationsContext/RecommendationsContext";
 
 export const Recommendations = () => {
   const navigate = useNavigate();
+  const { RECOMMENDATIONS } = useContext(RecommendationsContext);
 
   const back = () => {
     navigate(-1);

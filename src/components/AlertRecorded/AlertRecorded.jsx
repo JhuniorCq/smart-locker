@@ -1,13 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "./AlertRecorded.css";
 
-export const AlertRecorded = ({
-  id,
-  name,
-  date,
-  details,
-  idRecommendation,
-}) => {
+export const AlertRecorded = ({ id, name, date }) => {
   const navigate = useNavigate();
 
   const goToAlertDetails = () => {
