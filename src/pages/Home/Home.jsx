@@ -24,7 +24,7 @@ export const Home = () => {
   };
 
   useEffect(() => {
-    const arduinoRef = ref(dbReal, "sensores/sensor1");
+    const arduinoRef = ref(dbReal, "arduino/data");
 
     // Escuchar los datos en tiempo real
     const unsubscribe = onValue(arduinoRef, (snapshot) => {
@@ -41,17 +41,6 @@ export const Home = () => {
       <div className="home__content">
         <img src={smartLockerBN} alt="Smart Locker" className="home__logo" />
         <h1 className="home__title">EL ESTADO DEL SMART LOCKER ES:</h1>
-        <div>
-          {arduinoData ? (
-            <>
-              <p>Temperatura: {arduinoData.temperature}</p>
-              <p>Humedad: {arduinoData.humidity}</p>
-              <p>Seguridad: {arduinoData.security}</p>
-            </>
-          ) : (
-            <div>Cargando ...</div>
-          )}
-        </div>
         {arduinoData ? (
           <>
             <Indicator
