@@ -28,7 +28,6 @@ export const Login = () => {
     const { name, value } = target;
 
     if (!value) return;
-    console.log(target.value);
 
     setForm({ ...form, [name]: value });
   };

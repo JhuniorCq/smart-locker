@@ -1,18 +1,19 @@
 import { useNavigate } from "react-router-dom";
 import smartLockerBN from "../../assets/images/Smart Locker B_N.png";
 import { Indicator } from "../../components/Indicator/Indicator";
-import { INDICATORS, SECURITY_VALUES } from "../../utils/constants";
+import { INDICATORS } from "../../utils/constants";
 import { dbReal } from "../../credentials";
 import { ref, onValue } from "firebase/database";
-import "./Home.css";
 import { useEffect, useState } from "react";
+import "./Home.css";
 
 export const Home = () => {
   const [arduinoData, setArduinoData] = useState(null);
   const navigate = useNavigate();
 
   const reload = () => {
-    window.location.reload();
+    // window.location.reload();
+    navigate(-1);
   };
 
   const goToAlertHistory = () => {
@@ -66,12 +67,6 @@ export const Home = () => {
 
         <div className="home__options">
           <button
-            className="home__option home__option--refresh"
-            onClick={reload}
-          >
-            REFRESCAR
-          </button>
-          <button
             className="home__option home__option--alert-history"
             onClick={goToAlertHistory}
           >
@@ -82,6 +77,12 @@ export const Home = () => {
             onClick={goToRecommendations}
           >
             RECOMENDACIONES
+          </button>
+          <button
+            className="home__option home__option--logout"
+            onClick={reload}
+          >
+            CERRAR SESIÓN
           </button>
         </div>
       </div>

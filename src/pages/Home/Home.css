@@ -19,10 +19,6 @@
   padding: 40px;
 }
 
-/* .home__content > * {
-  border: 1px solid red;
-} */
-
 .home__logo {
   width: 260px;
 }
@@ -52,7 +48,7 @@
   cursor: pointer;
 }
 
-.home__option--refresh {
+.home__option--logout {
   background-color: black;
 }
 

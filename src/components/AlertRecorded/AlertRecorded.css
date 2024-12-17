@@ -10,7 +10,6 @@
 
 .alert-recorded__name {
   max-width: 50%;
-  /* border: 1px solid red; */
   font-family: var(--font-family-inter);
   font-weight: 400;
   font-size: 0.9rem;

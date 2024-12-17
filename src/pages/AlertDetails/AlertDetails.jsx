@@ -1,11 +1,11 @@
 import { useNavigate, useParams } from "react-router-dom";
-import smartLockerBN from "../../assets/images/Smart Locker B_N.png";
-import "./AlertDetails.css";
 import { INDICATORS, SECURITY_VALUES } from "../../utils/constants";
 import { Indicator } from "../../components/Indicator/Indicator";
 import { useContext } from "react";
 import { RecommendationsContext } from "../../context/RecommendationsContext/RecommendationsContext";
 import { RecordedAlertsContext } from "../../context/RecordedAlerts/RecordedAlertsContext";
+import smartLockerBN from "../../assets/images/Smart Locker B_N.png";
+import "./AlertDetails.css";
 
 export const AlertDetails = () => {
   const { RECOMMENDATIONS } = useContext(RecommendationsContext);
@@ -13,20 +13,13 @@ export const AlertDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  console.log(RECORDED_ALERTS, "RECORDED_ALERTS");
-  console.log(RECOMMENDATIONS);
-
   const recordedAlert = RECORDED_ALERTS.find(
-    (recordedAlert) => recordedAlert.id === id
+    (recordedAlert) => recordedAlert.id === Number(id)
   );
-
-  console.log(recordedAlert);
 
   const alertRecommendations = RECOMMENDATIONS.find(
     (recommendation) => recordedAlert.idRecommendation === recommendation.id
   );
-
-  console.log(alertRecommendations);
 
   const back = () => {
     navigate(-1);
@@ -40,7 +33,7 @@ export const AlertDetails = () => {
           alt="Smart Locker"
           className="alert-details__logo"
         />
-        <h1 className="alert-details__title">DETALLES DE LA ALERTA</h1>
+        <h1 className="alert-details__title">DETALLES DE LA ALERTA N°{id}</h1>
         <div className="alert-details__details-box">
           <div className="alert-details__details">
             <p className="alert-details__type">NOMBRE: </p>
@@ -96,9 +89,6 @@ export const AlertDetails = () => {
           </ul>
         </div>
         <div className="alert-details__options">
-          <button className="alert-details__option alert-details__option--delete">
-            BORRAR
-          </button>
           <button
             className="alert-details__option alert-details__option--back"
             onClick={back}

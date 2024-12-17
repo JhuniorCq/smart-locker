@@ -1,7 +1,7 @@
 import { INDICATORS, SECURITY_VALUES } from "../../utils/constants";
 import "./Indicator.css";
 
-export const Indicator = ({ type, value, min, max, doorStatus /*, open*/ }) => {
+export const Indicator = ({ type, value, min, max }) => {
   return (
     <div className="indicator">
       <h2 className="indicator__name">{type}:</h2>

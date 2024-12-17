@@ -1,5 +1,4 @@
 .indicator {
-  /* border: 1px solid blue; */
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -17,18 +16,12 @@
   display: flex;
   align-items: center;
   gap: 20px;
-  /* border: 1px solid yellow; */
 }
 
 .indicator__value {
   font-family: var(--font-family-inter);
   font-size: 0.9rem;
 }
-
-/* .indicator__input:disabled::-webkit-slider-thumb {
-  background-color: green;
-  cursor: not-allowed;
-} */
 
 .indicator__security {
   height: 45px;
@@ -50,7 +43,6 @@
   background-color: var(--color-dark-blood-red);
   color: white;
   border: none;
-  /* height: 40px; */
   padding: 10px 14px;
   border-radius: 4px;
   cursor: pointer;
