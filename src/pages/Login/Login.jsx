@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import smartLocker from "../../assets/images/Smart Locker.png";
-import "./Login.css";
 import { useState } from "react";
 import { auth } from "../../credentials";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import "./Login.css";
 
 export const Login = () => {
   const [form, setForm] = useState({

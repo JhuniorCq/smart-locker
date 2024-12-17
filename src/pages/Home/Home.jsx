@@ -2,18 +2,26 @@ import { useNavigate } from "react-router-dom";
 import smartLockerBN from "../../assets/images/Smart Locker B_N.png";
 import { Indicator } from "../../components/Indicator/Indicator";
 import { INDICATORS } from "../../utils/constants";
-import { dbReal } from "../../credentials";
+import { auth, dbReal } from "../../credentials";
 import { ref, onValue } from "firebase/database";
 import { useEffect, useState } from "react";
 import "./Home.css";
+import { signOut } from "firebase/auth";
 
 export const Home = () => {
   const [arduinoData, setArduinoData] = useState(null);
   const navigate = useNavigate();
 
-  const reload = () => {
-    // window.location.reload();
-    navigate(-1);
+  const logout = async () => {
+    try {
+      // Cerrar sesión
+      await signOut(auth);
+      console.log("Sesión cerrada correctamente.");
+      navigate("/");
+    } catch (error) {
+      console.error("Error al cerrar la sesión: ", error.message);
+      alert("No se pudo cerrar la sesión. Inténtelo de nuevo.");
+    }
   };
 
   const goToAlertHistory = () => {
@@ -59,6 +67,7 @@ export const Home = () => {
             <Indicator
               type={INDICATORS.SECURITY}
               value={arduinoData.security}
+              // value={"OPEN"}
             />
           </>
         ) : (
@@ -80,7 +89,7 @@ export const Home = () => {
           </button>
           <button
             className="home__option home__option--logout"
-            onClick={reload}
+            onClick={logout}
           >
             CERRAR SESIÓN
           </button>
